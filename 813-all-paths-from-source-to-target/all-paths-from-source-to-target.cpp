@@ -1,21 +1,17 @@
 class Solution {
 public:
-    vector<vector<int>> ans;
-    void dfs(int curr,vector<vector<int>>& graph,vector<int> &v){
-        v.push_back(curr);
-        if(curr==graph.size()-1){
-            ans.push_back(v);
+    vector<vector<int>> res;
+    void allpath(int src,vector<vector<int>>& graph,vector<int> &v){
+        v.push_back(src);
+        if(src==graph.size()-1){
+            res.push_back(v);
         }
-        {
-            for(int neigh: graph[curr]){
-                dfs(neigh,graph,v);
-            }
-        }
+        for(auto neigh:graph[src]) allpath(neigh,graph,v);
         v.pop_back();
     }
     vector<vector<int>> allPathsSourceTarget(vector<vector<int>>& graph) {
         vector<int> v;
-        dfs(0,graph,v);
-        return ans;
+        allpath(0,graph,v);
+        return res;
     }
 };

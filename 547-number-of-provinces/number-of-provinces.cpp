@@ -3,10 +3,9 @@ public:
     int find(vector<int> &parent,int a){
         return parent[a]=(parent[a]==a)?a:find(parent,parent[a]);
     }
-    void Union(vector<int> &parent,vector<int>& rank,int a,int b){
-        a = find(parent,a);
-        b = find(parent,b);
-        if(a==b) return;
+    void Union(vector<int> &parent,vector<int> &rank,int a,int b){
+        a=find(parent,a);
+        b=find(parent,b);
         if(rank[a]>=rank[b]){
             rank[a]++;
             parent[b]=a;

@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int find(vector<int> &parent,int a){
+    int find(vector<int> parent,int a){
         return parent[a]=(parent[a]==a)?a:find(parent,parent[a]);
     }
     void Union(vector<int> &parent,vector<int> &rank,int a,int b){

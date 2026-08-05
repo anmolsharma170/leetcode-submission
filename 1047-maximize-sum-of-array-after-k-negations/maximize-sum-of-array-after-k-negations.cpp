@@ -8,6 +8,7 @@ public:
         }
         while(k--){
             int n = pq.top();
+            if(n==0) break;
             pq.pop();
             n = -1*n;
             pq.push(n);

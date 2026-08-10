@@ -2,7 +2,7 @@ class Solution {
 public:
     string repeatLimitedString(string s, int repeatLimit) {
         unordered_map<char,int> mp;
-        for(auto ch: s){
+        for(char ch: s){
             mp[ch]++;
         }
         priority_queue<pair<char,int>> pq;
@@ -13,21 +13,21 @@ public:
         while(!pq.empty()){
             auto largest = pq.top();
             pq.pop();
-            int len = min(repeatLimit,largest.second);
+            int len = min(largest.second,repeatLimit);
             for(int i=0;i<len;i++){
                 res+=largest.first;
             }
-            pair<char,int> secondlargest;
+            pair<char,int> seclargest;
             if(largest.second-len>0){
                 if(!pq.empty()){
-                    secondlargest = pq.top();
+                    seclargest = pq.top();
                     pq.pop();
-                    res+=secondlargest.first;
+                    res+=seclargest.first;
                 }
-                else{
-                    return res;
+                else return res;
+                if(seclargest.second-1>0){
+                    pq.push({seclargest.first,seclargest.second-1});
                 }
-                if(secondlargest.second-1>0) pq.push({secondlargest.first,secondlargest.second-1});
                 pq.push({largest.first,largest.second-len});
             }
         }

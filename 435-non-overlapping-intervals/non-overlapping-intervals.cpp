@@ -4,11 +4,11 @@ bool cmp(vector<int> &a,vector<int> &b){
 class Solution {
 public:
     int eraseOverlapIntervals(vector<vector<int>>& intervals) {
+        int count = 0;
         int n = intervals.size();
         sort(intervals.begin(),intervals.end(),cmp);
         int lastEnd = intervals[0][1];
-        int count = 0;
-        for(int i=1;i<n;i++){
+        for(int i=1;i<intervals.size();i++){
             if(intervals[i][0]<lastEnd){
                 count++;
             }

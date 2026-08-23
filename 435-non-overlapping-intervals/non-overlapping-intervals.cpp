@@ -11,6 +11,7 @@ public:
         for(int i=1;i<intervals.size();i++){
             if(intervals[i][0]<lastEnd){
                 count++;
+                lastEnd = min(lastEnd,intervals[i][1]);
             }
             else{
                 lastEnd = intervals[i][1];

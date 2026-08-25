@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int helper(int sr,int sc,int er,int ec,vector<vector<int>>& dp){
+    int helper(int sr,int sc,int er,int ec,vector<vector<int>>& dp){  // using 2d memoization
         if(sr==er && sc==ec) return 1;
         if(sr>er || sc>ec) return 0;
         if(dp[sr][sc]!=-1) return dp[sr][sc];

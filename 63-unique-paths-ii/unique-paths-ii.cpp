@@ -15,9 +15,7 @@ public:
             for(int j=0;j<n;j++){
                 if(arr[i][j]==1) dp[i][j]==INT_MAX;
                 else dp[i][j]=-1;
-                cout<<dp[i][j]<<" ";
             }
-            cout<<endl;
         }
         return helper(0,0,m-1,n-1,dp);
     }

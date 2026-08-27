@@ -1,14 +1,13 @@
 class Solution {
 public:
+    int helper(vector<int> nums,int i,vector<int> &dp){
+        if(i==nums.size()-1) return nums[i];
+        if(i==nums.size()-2) return max(nums[i],nums[i+1]);
+        if(dp[i]!=-1) return dp[i];
+        return dp[i]=max(nums[i]+helper(nums,i+2,dp),0+helper(nums,i+1,dp));
+    }
     int rob(vector<int>& nums) {
-        int n = nums.size();
-        if(n==1) return nums[0];
-        vector<int> dp(n);
-        dp[0]=nums[0];
-        dp[1]=max(nums[0],nums[1]);
-        for(int i=2;i<nums.size();i++){
-            dp[i]=max(dp[i-1],dp[i-2]+nums[i]);
-        }
-        return dp[n-1];
+        vector<int> dp(105,-1);
+        return helper(nums,0,dp);
     }
 };

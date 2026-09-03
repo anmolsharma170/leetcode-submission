@@ -1,6 +1,6 @@
 class Solution {
 public:
-    long long cal(vector<int> nums,int mid){
+    long long cal(vector<int>& nums,int mid){
         long long total = 0;
         for(int i=0;i<nums.size();i++){
             total+= ((long long)nums[i]+mid-1)/mid;

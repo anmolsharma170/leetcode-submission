@@ -21,25 +21,25 @@ public:
 
 class Solution {
 public:
-    vector<Node*> noderegister;
+    vector<Node*> nodeRegister;
     void dfs(Node* node, Node* clone){
-        for(auto neigh: node->neighbors){
-            if(!noderegister[neigh->val]){
-                Node* newNode = new Node(neigh->val);
-                noderegister[newNode->val]=newNode;
-                clone->neighbors.push_back(newNode);
-                dfs(neigh,newNode);
+        for(auto neighbor: node->neighbors){
+            if(!nodeRegister[neighbor->val]){
+                Node* newnode = new Node(neighbor->val);
+                nodeRegister[newnode->val]=newnode;
+                clone->neighbors.push_back(newnode);
+                dfs(neighbor,newnode);
             }
             else{
-                clone->neighbors.push_back(noderegister[neigh->val]);
+                clone->neighbors.push_back(nodeRegister[neighbor->val]);
             }
         }
     }
     Node* cloneGraph(Node* node) {
         if(node==NULL) return node;
-        noderegister.resize(110,NULL);
+        nodeRegister.resize(125,NULL);
         Node* clone = new Node(node->val);
-        noderegister[node->val] = clone;
+        nodeRegister[node->val]=clone;
         dfs(node,clone);
         return clone;
     }

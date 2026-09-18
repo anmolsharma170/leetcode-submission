@@ -15,7 +15,7 @@ public:
     }
     vector<vector<int>> colorBorder(vector<vector<int>>& grid, int row, int col, int color) {
         int prevcolor = grid[row][col];
-        if(prevcolor==color) return grid;
+        // if(prevcolor==color) return grid;
         dfs(grid,row,col,prevcolor,color);
         for(auto p:internals){
             int row = p[0];

@@ -17,14 +17,6 @@ public:
             negDiamp4[x-y]++;
             mp5[n*x+y]++;
         }
-        cout<<"rowmap\n";
-        for(auto p: rowmp1){
-            cout<<p.first<<" "<<p.second<<endl;
-        }
-        cout<<"colmap\n";
-        for(auto p: colmp2){
-            cout<<p.first<<" "<<p.second<<endl;
-        }
         for(int i=0;i<queries.size();i++){
             long long x = queries[i][0];
             long long y = queries[i][1];

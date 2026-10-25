@@ -2,23 +2,21 @@ class Solution {
 public:
     vector<int> productExceptSelf(vector<int>& nums) {
         int n = nums.size();
-        vector<int> prepro(n);
-        vector<int> suffpro(n);
-        prepro[0] = 1;
-        suffpro[n-1]=1;
-        int pro = nums[0];
-        for(int i = 1;i<n;i++){
-            prepro[i]=pro;
-            pro*=nums[i];
+        vector<int> prefix_pro(n,1);
+        vector<int> suffix_pro(n,1);
+        vector<int> ans(n);
+        prefix_pro[0]=1;
+        suffix_pro[n-1]=1;
+        for(int i=1;i<n;i++){
+            prefix_pro[i]=prefix_pro[i-1]*nums[i-1];
         }
-        int prod = nums[n-1];
-        for(int i=n-2;i>=0;i--){
-            suffpro[i]=prod;
-            prod*=nums[i];
+        for(int i = n-2;i>=0;i--){
+            suffix_pro[i]=suffix_pro[i+1]*nums[i+1];
         }
-        for(int i = 0;i<nums.size();i++){
-            prepro[i]*=suffpro[i];
+        for(int i=0;i<ans.size();i++){
+            ans[i]=suffix_pro[i]*prefix_pro[i];
         }
-        return prepro;
-    }
+        for(auto ele:suffix_pro) cout<<ele<<" ";
+        return ans;
+    } 
 };

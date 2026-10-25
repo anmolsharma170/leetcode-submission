@@ -16,7 +16,6 @@ public:
         for(int i=0;i<ans.size();i++){
             ans[i]=suffix_pro[i]*prefix_pro[i];
         }
-        for(auto ele:suffix_pro) cout<<ele<<" ";
         return ans;
     } 
 };

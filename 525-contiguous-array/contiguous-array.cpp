@@ -8,8 +8,6 @@ public:
         vector<long long int> prefixsum(n+1);
         prefixsum[0]=0;
         mp[0]=0;
-        
-        cout<<endl;
         for(int i = 1;i<=n;i++){
             int val = (nums[i-1]==0)?-1:1;
             prefixsum[i]=prefixsum[i-1]+val;

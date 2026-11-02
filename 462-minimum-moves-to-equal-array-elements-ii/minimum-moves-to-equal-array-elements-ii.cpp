@@ -6,16 +6,13 @@ public:
         int count = 0;
         int n = nums.size();
         if(n%2!=0){
-            // cout<<"entered\n";
+           
             int median = nums[n/2];
-            // cout<<"median "<<median<<"\n";
+            
             for(int i=0;i<n;i++){
                 if(i!=n/2){
-                    // cout<<"entry nested "<<nums[i]<<"\n";
                     int needed=abs(median-nums[i]);
-                    // cout<<"needed "<<needed<<"\n";
                     fcount+=needed;
-                    // cout<<"count "<<count<<"\n";
                 }
             }
 
@@ -36,9 +33,6 @@ public:
                     count2+=needed;
                 }
             }
-            // for(int i=0;i<n;i++){
-                
-            // }
             fcount=(count1<count2)?count1:count2;
         }
         return fcount;

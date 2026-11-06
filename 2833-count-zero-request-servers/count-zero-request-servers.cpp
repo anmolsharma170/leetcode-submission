@@ -20,7 +20,6 @@ public:
                 mp[logs[right][0]]++;
                 right++;
             }
-            // int left=0, right=0;
             while(left<logs.size() && logs[left][1]<start){
                 mp[logs[left][0]]--;
                 if(mp[logs[left][0]]==0) mp.erase(logs[left][0]);

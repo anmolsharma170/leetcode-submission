@@ -18,7 +18,7 @@ public:
             }
             int target = i%k;
             auto it = available_servers.lower_bound(target);
-            if(it==available_servers.end()){
+            if(it==available_servers.end()){    // Wrap around
                 it=available_servers.begin();
             }
             if(available_servers.empty()){
@@ -29,9 +29,6 @@ public:
             available_servers.erase(it);
             busy_servers.push({load[i]+time,targetServer});
             CountServerRequest[targetServer]++;
-            // if(available_servers.find(target)!=available_servers.end()){
-
-            // }
         }
         int maxreq = *max_element(CountServerRequest.begin(),CountServerRequest.end());
         vector<int> ans;
